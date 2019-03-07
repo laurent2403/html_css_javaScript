@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test2</title>
+          <style>
+
+       #carrousel {
+   width: 700px;
+   height: 200px;
+   overflow: hidden;
+   border: 3px solid green;
+   margin:auto;
+}
+
+     #carrousel ul {
+    /* 4 images donc 4 x 100% */
+   width: 300%;
+   height: 200px;
+   padding:0; margin:0;
+   list-style: none;
+}
+     #carrousel li {
+   float: left;
+}
+
+    .btn{
+            padding: 10px 30px; 
+            background-image: radial-gradient(circle at top left, white, green);
+            font-family: URW Chancery L, cursive;
+            color: white; 
+            text-decoration: none;
+            font-size: 40px;
+            font-weight:bold;
+            border-radius: 30px;
+            margin : 0 10px;
+          }
+
+     .panelBtn{
+            display: flex;
+            justify-content: center;
+            padding-top: 150px;
+          }
+
+          </style>
+    </head>
+
+<body>
+
+<div id="carrousel">
+
+    <ul>
+        <li><img src="http://lorempixel.com/700/200/" /></li>
+        <li><img src="http://lorempixel.com/g/700/200/" /></li>
+        <li><img src="http://lorempixel.com/700/200/abstract/" /></li>
+    </ul>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+    // recupere le carrousel d'image
+    $carrousel = $("#carrousel img");
+    // recupere l'index de la derniere image
+    $idxLastImg = $carrousel.length - 1;
+    // compteur d'image initialisé a 0
+    var idxImage = 0;
+    // recupere l'image courante
+    $curImage = $carrousel.eq(idxImage);
+
+    // creation d'une div pour le panneau des boutons
+    $divPanelBtn = $("<div />");
+    // ajoute la class a la div
+    $divPanelBtn.addClass("panelBtn");
+
+
+    // creation du bouton next
+    $nextBtn = $("<input> </input>");
+    // ajout des attributs au bouton next
+    $nextBtn.attr("id", "nextBtn")
+            .attr("value", "NEXT")
+            .addClass("btn");
+    // ajout du bouton a la div
+    $nextBtn.appendTo($divPanelBtn);
+
+     // creation du bouton preview
+    $previewBtn = $("<input> </input>");
+    // ajout des attributs au bouton next
+    $previewBtn.attr("id", "previewBtn")
+            .attr("value", "PREVIEW")
+            .addClass("btn");
+    // ajout du bouton a la div
+    $previewBtn.appendTo($divPanelBtn);
+
+    // ajoute la div au body
+    $divPanelBtn.appendTo("body");
+
+    // gestionnaire du boutons next
+    function nextBtnHandler(){
+       idxImage++;
+
+       if(idxImage <= $idxLastImg){
+        // l'index est <= a l'index de la derniere image
+
+        // on cache l'image courante
+        $carrousel.css("display", "none");
+        // recupere la nouvelle image courante
+        $curImage = $carrousel.eq(idxImage);
+        // on affiche la nouvelle image
+        $curImage.css("display", "block");
+       }else{
+        // l'index redevient l'index de la derniere image du carrousel
+        idxImage = $idxLastImg;
+       }
+    }
+
+    // gestionnaire du boutton preview
+    function previewBtnHandler(){
+       idxImage--;
+
+       if(idxImage >= 0){
+        // l'index est  >= a la premiere image
+
+        // on cache l'image courante
+        $carrousel.css("display", "none");
+        // recupere la nouvelle image courante
+        $curImage = $carrousel.eq(idxImage);
+        // on affiche la nouvelle image
+        $curImage.css("display", "block");
+       }else{
+        // l'index redevient l'index de la derniere image du carrousel
+        idxImage = 0;
+       }
+    }
+
+    // rattachement du boutton next à son gestionnaire
+    $("#nextBtn").click( function(){
+      nextBtnHandler();
+    });
+    
+    // rattachement du boutton preview avec son gestionnaire
+    $("#previewBtn").click(function(){
+       previewBtnHandler();
+    });
+
+    // animation
+    (function($){  
+  setInterval(function(){  
+    $("#carrousel ul li:first-child").animate({"margin-left": -700}, 800, function(){  
+        $(this).css("margin-left",0).appendTo("#carrousel ul");  
+    });  
+  }, 3500);  
+})(jQuery);
+
+
+
+
+});
+
+    
+</script>
+ </body>
+
+</html>

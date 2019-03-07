@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TEST 1</title>
+    <style type="text/css">
+      .question{
+         margin-top: 15px;
+         border-radius: 5px;
+         position: relative;
+         box-shadow: 0px 10px 10px black;
+         margin-bottom: 25px;
+         background-repeat: no-repeat;
+         background-size: 100% 100%;
+         background-origin: content-box;
+         background-color: cyan;
+         display: flex;
+      }
+
+      #reponse_1, #reponse_2, #reponse_3{
+        display: none;
+        font-size: 35px;
+        font-style: bold;
+        font-family: Times, Times New Roman, serif;
+      }
+
+      #image_1, #image_2, #image_3 {
+       display: none;
+      }
+
+      #btn{
+        display: flex;
+        justify-content: center;
+      }
+
+      #valid, #reset{
+        background-image: radial-gradient(circle at top left, white, blue);
+        color: white;
+        font-size: 35px;
+        font-style: bold;
+        padding-right: 20px;
+
+      }
+
+    </style>
+  </head>
+  <body>
+   <div class="question">
+     <div>
+       <h1>Question 1:</h1>
+       <label> Le code jQuerry s'execute : </label><br />
+       <input type="radio" id="r1" name="q1">Dans le navigateur<br>
+       <input type="radio" id="r2" name="q1">Sur le serveur où est stocké le code<br>
+       <input type="radio" id="r3" name="q1">Tantôt dans le navigateur, tantôt sur le serveur<br>
+       <span id="reponse_1">Le code jQuery n'est autre que du JavaScript. A ce titre, il s'exécute toujours sur les clients (ordinateurs, tablettes et téléphones) qui font référence à ce code via une page HTML. La bonne réponse est donc la première.</span> <br>
+      </div>
+      <div>
+         <img id="image_1">
+      </div>
+   </div> 
+
+   <div class="question">
+     <div>
+       <h1>Question 2:</h1>
+       <label> Quand on veut executer du code jQuery, attendre la disponibilité du DOM est: </label><br />
+       <input type="radio" id="r4" name="q2">Vital<br>
+       <input type="radio" id="r5" name="q2">Inutil<br>
+       <input type="radio" id="r6" name="q2">Parfois important, parfois sans importance<br>
+       <span id="reponse_2">Il est impératif d'attendre la disponibilité du DOM avant d'exécuter du code jQuery. Sans quoi, ce code pourrait s'appliquer à un élément indisponible et provoquer un comportement inattendu, voire même un plantage du navigateur.</span><br>
+      </div>
+      <div>
+         <img id="image_2">
+      </div>
+   </div> 
+
+   <div class="question">
+     <div>
+       <h1>Question 3:</h1>
+       <label> Pour chainer deux methodes jQuery </label><br />
+       <input type="radio" id="r7" name="q3">Il faut les mettre l'une a la suite de l'autre, en les separant d'une virgule<br>
+       <input type="radio" id="r8" name="q3">Il faut les mettre l'une a la suite de l'autre, en les separant par un point<br>
+       <input type="radio" id="r9" name="q3">Il est imposible de chainer deux methoses jQuery<br>
+       <span id="reponse_3">L'exécution d'un sélecteur jQuery produit un objet jQuery sur lequel il est possible d'appliquer une méthode jQuery. Cette méthode produit elle-même un objet jQuery. Il est donc possible de lui appliquer une autre méthode en utilisant le caractère de liaison habituel : le point décimal.</span><br>
+      </div>
+      <div>
+         <img id="image_3">
+      </div>
+   </div> 
+
+     <div id="btn">
+       <input type="submit" value="Envoyer" id="valid">
+       <input type="submit" value="Reset" id="reset">
+     </div>
+
+     <span id="testRadio"> </span>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="questionnaire.js"></script>
+  </body>
+</html>

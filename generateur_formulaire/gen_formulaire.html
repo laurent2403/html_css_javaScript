@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Generateur de formulaire</title>
+    <style type="text/css">
+
+       #idDivPresentation{
+       	display: flex;
+       	height: auto;
+       }
+
+       #idDivPrincipalDroite{
+       	background-color: #7196a8;
+       	width: 40%;
+       }
+
+       #idDivValidationDroite{
+        padding: 10px 10px;
+       }
+
+       #idDivCreationGauche{
+        background-color: #f6ddcc;
+        width: 60%;
+       }
+
+       #idDivInput{
+       	padding: 10px 30px; 
+       	text-align: center;
+       }
+
+       input{
+        padding: 10px 30px; 
+        background-image: radial-gradient(circle at top left, blue, green);
+        font-family: URW Chancery L, cursive;
+        color: white; 
+        font-size: 30px;
+        border-radius: 40px;
+       }
+
+       label{
+       	font-family: URW Chancery L, cursive;
+        color: white; 
+        font-size: 30px;
+        padding-right: 10px;
+       }
+
+       h1{
+       	text-align: center;
+       	font-family: URW Chancery L, cursive;
+        color: white; 
+       }
+
+    </style>
+    </head>
+    <body>
+    	<div id="idDivPresentation">
+
+    	    <div id="idDivCreationGauche">
+    	    	
+    	    </div>
+
+    	    <div id="idDivPrincipalDroite">
+    	 	  <div>
+    	 		<h1>Création de votre formulaire</h1>
+    	 	  </div>
+              <div id="idDivInput" class="classDivInput">
+    	 	 	<input type="submit" name="Label" value="Label" onclick="buildInput(1)">
+    		    <input type="submit" name="Zone de texte" value = "Zone de texte" onclick="buildInput(2)">
+    		    <input type="submit" name="Bouton" value="Bouton" onclick="buildInput(3)">
+    	 	  </div>
+    	 	  <div id="idDivValidationDroite"></div>
+    	    </div>
+
+    	</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="genFormulaire.js"></script>
+  	</body>
+</html>
